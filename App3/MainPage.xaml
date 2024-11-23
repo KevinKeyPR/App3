@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="App3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="1512">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Barra de navegación con pestañas -->
+        <Pivot Title="Módulos">
+            <!-- Pestaña: Búsqueda de Paciente -->
+            <PivotItem Header="Búsqueda de Paciente">
+                <Grid Padding="20">
+                    <StackPanel Spacing="15">
+                        <TextBox Header="Buscar Paciente" PlaceholderText="Ingrese nombre o ID del paciente..." />
+                        <Button Content="Buscar" HorizontalAlignment="Left" />
+                        <ListView Header="Resultados" Width="Auto" Height="300">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+
+            <!-- Pestaña: Ingresar Paciente -->
+            <PivotItem Header="Ingresar Paciente">
+                <Grid Padding="20">
+                    <StackPanel Spacing="15">
+                        <TextBox Header="Nombre" PlaceholderText="Ingrese el nombre del paciente" />
+                        <TextBox Header="Edad" PlaceholderText="Ingrese la edad del paciente" />
+                        <TextBox Header="Dirección" PlaceholderText="Ingrese la dirección del paciente" />
+                        <Button Content="Guardar" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+
+            <!-- Pestaña: Crear Consulta -->
+            <PivotItem Header="Crear Consulta">
+                <Grid Padding="20">
+                    <StackPanel Spacing="15">
+                        <TextBox Header="Paciente" PlaceholderText="Ingrese el nombre o ID del paciente" />
+                        <DatePicker Header="Fecha de Consulta" />
+                        <TextBox Header="Descripción" PlaceholderText="Describa los síntomas o motivos de consulta" AcceptsReturn="True" Height="100" />
+                        <Button Content="Crear Consulta" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+
+            <!-- Pestaña: Dar Seguimiento -->
+            <PivotItem Header="Dar Seguimiento">
+                <Grid Padding="20">
+                    <StackPanel Spacing="15">
+                        <TextBox Header="ID de Consulta" PlaceholderText="Ingrese el ID de la consulta a dar seguimiento" />
+                        <Button Content="Buscar Consulta" HorizontalAlignment="Left" />
+                        <TextBlock Text="Detalles de la Consulta" FontWeight="Bold" />
+                        <TextBlock Text="Aquí aparecerán los detalles de la consulta seleccionada." TextWrapping="Wrap" />
+                        <Button Content="Actualizar Información" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
